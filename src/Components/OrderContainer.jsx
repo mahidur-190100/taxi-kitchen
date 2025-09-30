@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import Card from "./Card";
 import OrderCard from "./OrderCrad";
+import CookingCard from "./CookingCard";
 
 const OrderContainer = ({ orderPromise }) => {
   // console.log(orderPromise);
@@ -46,7 +47,7 @@ const OrderContainer = ({ orderPromise }) => {
           <h2 className="font-bold text-4xl"> Cooking Now</h2>
           <div className="shadow p-10 space-y-5">
             {cookingItems.map((cookingItem) => (
-              <h2 key={cookingItem.id}>{cookingItem.order_title}</h2>
+              <CookingCard key={cookingItem.id} cookingItem={cookingItem}>  </CookingCard>
             ))}
           </div>
         </div>
