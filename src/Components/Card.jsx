@@ -1,7 +1,7 @@
 import { ScrollText } from "lucide-react";
 import React from "react";
 
-const Card = () => {
+const Card = ({orderTotal, cookingTotal }) => {
   return (
     <div className="flex flex-col gap-4 lg:flex-row lg:justify-between items-center " >
       <div className="border-4 border-dotted rounded-2xl border-primary p-5">
@@ -9,7 +9,7 @@ const Card = () => {
           <ScrollText className="animate-pulse" color="#fcb700" size={100} />
           <div className="text-xl text-center">
             Current Orders
-            <h2 className="text-6xl font-bold">0</h2>
+            <h2 className="text-6xl font-bold">{orderTotal}</h2>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@ const Card = () => {
           <ScrollText className="animate-pulse" color="#fcb700" size={100} />
           <div className="text-xl text-center">
             Current Orders
-            <h2 className="text-6xl font-bold">0</h2>
+            <h2 className="text-6xl font-bold">{cookingTotal }</h2>
           </div>
         </div>
       </div>
