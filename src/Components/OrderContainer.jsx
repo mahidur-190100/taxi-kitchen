@@ -2,26 +2,48 @@ import React, { use, useState } from "react";
 import Card from "./Card";
 import OrderCard from "./OrderCrad";
 import CookingCard from "./CookingCard";
+import Ready from "./Ready";
 
 const OrderContainer = ({ orderPromise }) => {
   // console.log(orderPromise);
   // use er kaj holo kono promise dile data dekhano
   // 4 no process
   const orders = use(orderPromise);
-  //   console.log(orders);
+    // console.log(orders);
 
   // usesate click korele chnage
   const [cookingItems, setCookingItems] = useState([]);
   const handleOrder = (order) => {
-    console.log(order);
+    // console.log(order);
+    // ekbar i add korbo card ke 2 bar korle alert dibe
+    const isExist = cookingItems.find((item)=> item.id == order.id);
+    if(isExist){
+      alert('Already cooking');
+      return
+    }
+
+
+
     // cookingt items er vitore click kora order ke add korbp
     const newCookingItems = [...cookingItems, order];
     setCookingItems(newCookingItems);
   };
-  console.log(cookingItems);
+  // console.log(cookingItems);
+
+// cokked button e click korle order ready te jabe
+const [readyItems, setReadyItems] = useState([]);
+const handleCooking = (readyItem) => {
+  // console.log(readyItem);
+  const newReadyItems = [...readyItems, readyItem];
+  setReadyItems(newReadyItems);
+  // 2. cooking item theke remove korbo
+  const remainingCooking = cookingItems.filter((item)=> item.id !== readyItem.id);
+  // console.log(remainingCooking);
+  setCookingItems(remainingCooking);
+}
   return (
     <div>
-      <Card cookingTotal={cookingItems.length} orderTotal={orders.length}>
+      <Card readyTotal= {readyItems.length} cookingTotal={cookingItems.length} orderTotal={orders.length}>
         {" "}
       </Card>
       <section
@@ -47,8 +69,16 @@ const OrderContainer = ({ orderPromise }) => {
           <h2 className="font-bold text-4xl"> Cooking Now</h2>
           <div className="shadow p-10 space-y-5">
             {cookingItems.map((cookingItem) => (
-              <CookingCard key={cookingItem.id} cookingItem={cookingItem}>  </CookingCard>
+              <CookingCard key={cookingItem.id} cookingItem={cookingItem} handleCooking={handleCooking}>  </CookingCard>
             ))}
+              
+              <h2 className="font-bold text-4xl"> Ready Now</h2>
+              <div className="shadow p-10 space-y-5">
+                {readyItems.map((readyItem) =>(
+                <Ready key={readyItem.id} readyItem={readyItem}>  </Ready>
+              ))} 
+
+              </div>
           </div>
         </div>
       </section>

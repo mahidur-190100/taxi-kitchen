@@ -1,10 +1,8 @@
 import React from 'react'
 
-
-const CookingCard = ({cookingItem,handleCooking}) => {
+const Ready = ({readyItem}) => {
   return (
-    
-     <div
+    <div
       className="rounded-xl p-5 shadow hover:shadow-lg"
       style={{
         background: "linear-gradient(#ffffff70, #FCB700), url('/cook-bg.gif')",
@@ -12,30 +10,23 @@ const CookingCard = ({cookingItem,handleCooking}) => {
     >
       {/* Title */}
       <h3 className="text-xl font-bold text-primary mb-2">
-        {cookingItem.order_title}
+        {readyItem.order_title}
       </h3>
 
       {/* Quantity */}
       <p className="text-lg font-semibold">
-        Quantity: <span className="text-gray-700">{cookingItem.quantity}</span>
+        Quantity: <span className="text-gray-700">{readyItem.quantity}</span>
       </p>
 
       {/* Special Instruction */}
       <p className="text-xs text-gray-600 mt-2 italic">
-        {cookingItem.special_instruction}
+        Food is Ready to Serve
       </p>
 
       {/* Static Button */}
-      <button
-        
-        className="px-6 mt-3 py-1 shadow text-sm hover:bg-black hover:text-white bg-white cursor-pointer rounded-xl"
-        onClick={()=>handleCooking(cookingItem)}
-
-      >
-        Cooked?
-      </button>
+     
     </div>
   )
 }
 
-export default CookingCard
+export default Ready

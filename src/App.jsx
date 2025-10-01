@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import Body from "./Components/Body";
 import Card from "./Components/Card";
 import OrderContainer from "./Components/OrderContainer";
+import Ready from "./Components/Ready";
 // data load er process 3 ta 
 // use()hook use kore data fetch korle varibale e call kore rakhte hou
 // process 1: data load korar jonno ekta function create kora
@@ -30,6 +31,7 @@ function App() {
       </Suspense>
 
       <section></section>
+      
     </>
   );
 }
