@@ -3,7 +3,8 @@ import React from "react";
 
 const Card = ({orderTotal, cookingTotal,readyTotal }) => {
   return (
-    <div className="flex flex-col gap-4 lg:flex-row lg:justify-between items-center " >
+    <div className="w-11/12 mx-auto py-10">
+      <div className="flex flex-col gap-4 lg:flex-row lg:justify-between items-center " >
       <div className="border-4 border-dotted rounded-2xl border-primary p-5">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <ScrollText className="animate-pulse" color="#fcb700" size={100} />
@@ -33,6 +34,7 @@ const Card = ({orderTotal, cookingTotal,readyTotal }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

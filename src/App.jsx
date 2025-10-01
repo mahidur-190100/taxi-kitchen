@@ -16,21 +16,21 @@ function App() {
   // console.log(orderPromise);
   return (
     <>
-      <section>
+      <section className="w-11/12 mx-auto py-5">
         <Navbar> </Navbar>
       </section>
-      <section>
+      <section className="w-11/12 mx-auto py-5">
         <Body>Kitchen Room</Body>
       </section>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<h1>Loading...</h1>} >
       {/* 3 no jekhane dekhabo datat okhane pathabo props hishbae suspense die wrap kore */}
         {/* use bebohar kore dtata dekhale suspnse use krte hoy component er moddhe */}
         {/* ordercontainer e data dekhabo tai ekhnae props akare pathai disi */}
         {/* 4 holo user maddhome props ta kaj korabo */}
-        <OrderContainer orderPromise={orderPromise}> </OrderContainer>
+        <OrderContainer className="w-11/12 mx-auto py-5" orderPromise={orderPromise}> </OrderContainer>
       </Suspense>
 
-      <section></section>
+    
       
     </>
   );
