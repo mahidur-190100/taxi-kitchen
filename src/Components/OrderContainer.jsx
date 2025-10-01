@@ -8,8 +8,9 @@ const OrderContainer = ({ orderPromise }) => {
   // console.log(orderPromise);
   // use er kaj holo kono promise dile data dekhano
   // 4 no process
-  const orders = use(orderPromise);
+  const data = use(orderPromise);
     // console.log(orders);
+    const[orders,setOrders] = useState(data);
 
   // usesate click korele chnage
   const [cookingItems, setCookingItems] = useState([]);
@@ -40,6 +41,10 @@ const handleCooking = (readyItem) => {
   const remainingCooking = cookingItems.filter((item)=> item.id !== readyItem.id);
   // console.log(remainingCooking);
   setCookingItems(remainingCooking);
+
+  // 3. orders thekeo remove korbo
+  const remainingOrders = orders.filter((item)=> item.id !== readyItem.id);
+  setOrders(remainingOrders);
 }
   return (
     <div>
